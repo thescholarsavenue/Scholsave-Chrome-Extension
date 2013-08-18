@@ -1,0 +1,65 @@
+.box:hover {
+	
+	background:#cecece;
+}
+
+body {
+	overflow-x:hidden;
+	margin:0;
+	padding:0;
+	font-family:"Lucida Grande","bitstream vera sans","trebuchet ms",sans-serif,verdana;
+}
+
+#popup {
+	width:400px;
+	height:400px;
+	overflow-x:hidden;	
+}
+
+.error {
+	text-align: center;
+	height:332px;
+}
+.box{
+	width:400px;
+	height:90px;
+	padding:5px 14px 5px 0px;
+	display:block;
+}
+
+.item {
+	width:270px;
+	height:75px;
+	color:black;
+	font-family:Helvetica;
+	padding:3px 7px 2px 7px;
+	text-overflow:ellipsis;
+	overflow:hidden;
+	margin-right:25px;
+	text-decoration:none;
+	font-size:13px;
+	font-weight:bold;
+	float:right;
+}
+
+.thumb {
+	width:75px;
+	height:75px;
+	float:left;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	padding-left:4px;
+}
+
+h4 {
+	margin-top:0;
+	margin-bottom:0;
+}
+
+.description {
+	font-weight:normal;
+}
+
+label {
+    cursor: default;
+}

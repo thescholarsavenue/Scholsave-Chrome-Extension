@@ -1,0 +1,36 @@
+{
+	"name": "The Scholars' Avenue Notifier",
+	"version": "1",
+	"manifest_version": 2,
+
+	"description": "Keep up with the latest from The Scholars' Avenue.",
+	
+	"icons": { 
+		"16": "images/tsa16px.png",
+        "48": "images/tsa47px.png",
+        "128": "images/tsa128px.png"
+		},
+		  
+	"browser_action": {
+		"default_icon": {
+			"19": "images/tsa16px.png",
+			"38": "images/tsa47px.png"
+		},
+		"default_title": "The Scholars' Avenue Notifier",     
+		"default_popup": "popup.html"
+	},
+	
+	"permissions": [
+		"http://feeds.feedburner.com/TheScholarsAvenue/",
+		"http://noticeboard.scholarsavenue.org/feed/",
+		"http://blog.scholarsavenue.org/feed/",
+		"https://www.facebook.com/feeds/page.php?id=156819310131&format=rss20",
+		"tabs", "*://*/*",
+		"storage"
+	],
+	
+	"background": {
+		"page": "background.html"
+	}
+	
+}
