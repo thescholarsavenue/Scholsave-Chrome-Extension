@@ -1,5 +1,40 @@
-.box:hover {
-	
+.box1:hover {	
+	background:#cecece;
+}
+
+.box2:hover {	
+	background:#cecece;
+}
+
+.box3:hover {	
+	background:#cecece;
+}
+
+.box4:hover {	
+	background:#cecece;
+}
+
+.box5:hover {	
+	background:#cecece;
+}
+
+.box6:hover {	
+	background:#cecece;
+}
+
+.box7:hover {	
+	background:#cecece;
+}
+
+.box8:hover {	
+	background:#cecece;
+}
+
+.box9:hover {	
+	background:#cecece;
+}
+
+.box10:hover {	
 	background:#cecece;
 }
 
@@ -20,7 +55,71 @@ body {
 	text-align: center;
 	height:332px;
 }
-.box{
+
+.box1{
+	width:400px;
+	height:90px;
+	padding:5px 14px 5px 0px;
+	display:block;
+}
+
+.box2{
+	width:400px;
+	height:90px;
+	padding:5px 14px 5px 0px;
+	display:block;
+}
+
+.box3{
+	width:400px;
+	height:90px;
+	padding:5px 14px 5px 0px;
+	display:block;
+}
+
+.box4{
+	width:400px;
+	height:90px;
+	padding:5px 14px 5px 0px;
+	display:block;
+}
+
+.box5{
+	width:400px;
+	height:90px;
+	padding:5px 14px 5px 0px;
+	display:block;
+}
+
+.box6{
+	width:400px;
+	height:90px;
+	padding:5px 14px 5px 0px;
+	display:block;
+}
+
+.box7{
+	width:400px;
+	height:90px;
+	padding:5px 14px 5px 0px;
+	display:block;
+}
+
+.box8{
+	width:400px;
+	height:90px;
+	padding:5px 14px 5px 0px;
+	display:block;
+}
+
+.box9{
+	width:400px;
+	height:90px;
+	padding:5px 14px 5px 0px;
+	display:block;
+}
+
+.box10{
 	width:400px;
 	height:90px;
 	padding:5px 14px 5px 0px;
