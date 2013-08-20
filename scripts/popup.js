@@ -1,5 +1,3 @@
-var i=1;
-
 $(document).ready(function() {
 	$(function() {
 		$("#tabs").tabs({
@@ -33,18 +31,21 @@ $(document).ready(function() {
 });
 
 function display_home(){
+	chrome.browserAction.setIcon({path:'../images/tsa16px.png'});
 	$('#tabs-1').empty();
 	$('#tabs-1').append(localStorage.getItem('feed_home_data'));
 	openlink_home();
 }
 
 function display_notice(){
+	chrome.browserAction.setIcon({path:'../images/tsa16px.png'});
 	$('#tabs-2').empty();
 	$('#tabs-2').append(localStorage.getItem('feed_notice_data'));
 	openlink_notice();
 }
 
 function display_blog(){
+	chrome.browserAction.setIcon({path:'../images/tsa16px.png'});
 	$('#tabs-3').empty();
 	$('#tabs-3').append(localStorage.getItem('feed_blog_data'));
 	openlink_blog();
