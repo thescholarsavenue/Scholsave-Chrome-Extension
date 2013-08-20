@@ -1,3 +1,10 @@
+var item = '';
+item += '<div class="error">\
+		<p>Oops!</p>\
+		<p>There seems to be a problem with your internet connection.</p>\
+		<p>Please try again later.</p>\
+		</div>';
+				
 $(document).ready(function() {
 	$(function() {
 		$("#tabs").tabs({
@@ -33,21 +40,30 @@ $(document).ready(function() {
 function display_home(){
 	chrome.browserAction.setIcon({path:'../images/tsa16px.png'});
 	$('#tabs-1').empty();
-	$('#tabs-1').append(localStorage.getItem('feed_home_data'));
+	if(localStorage.getItem('feed_home_data') != '')
+		$('#tabs-1').append(localStorage.getItem('feed_home_data'));
+	else
+		$('#tabs-1').append(item);
 	openlink_home();
 }
 
 function display_notice(){
 	chrome.browserAction.setIcon({path:'../images/tsa16px.png'});
 	$('#tabs-2').empty();
-	$('#tabs-2').append(localStorage.getItem('feed_notice_data'));
+	if(localStorage.getItem('feed_notice_data') != '')
+		$('#tabs-2').append(localStorage.getItem('feed_notice_data'));
+	else
+		$('#tabs-2').append(item);
 	openlink_notice();
 }
 
 function display_blog(){
 	chrome.browserAction.setIcon({path:'../images/tsa16px.png'});
 	$('#tabs-3').empty();
-	$('#tabs-3').append(localStorage.getItem('feed_blog_data'));
+	if(localStorage.getItem('feed_blog_data') != '')
+		$('#tabs-3').append(localStorage.getItem('feed_blog_data'));
+	else
+		$('#tabs-3').append(item);
 	openlink_blog();
 }
 
