@@ -1,10 +1,17 @@
-var home_old;
-var notice_old;
-var blog_old;
+var home_old = new Object();
+var notice_old = new Object();
+var blog_old = new Object();
 var timeout_1;
 var timeout_2;
 var timeout_3;
+var timeout_4;
 
+var item = '';
+item += '<div class="error">\
+		<p>Oops!</p>\
+		<p>There seems to be a problem with your internet connection.</p>\
+		<p>Please try again later.</p>\
+		</div>';
 
 chrome.runtime.onInstalled.addListener(function() {
 	fetch_home_feed();
@@ -21,8 +28,9 @@ chrome.runtime.onStartup.addListener(function() {
 
 function infinite_loop()
 {
-	timeout_2 = window.setInterval(copy_data, 59900);
-	timeout_3 = window.setInterval(fetch_data, 60000);
+	timeout_2 = window.setInterval(null_data, 5000);
+	timeout_3 = window.setInterval(copy_data, 299000);
+	timeout_4 = window.setInterval(fetch_data, 300000);
 }
 
 function fetch_data() {
@@ -32,20 +40,70 @@ function fetch_data() {
 	check_data();
 }
 
+function null_data() {
+	if(localStorage.getItem('feed_home_data') == '' || localStorage.getItem('feed_notice_data') == '' || localStorage.getItem('feed_blog_data') == '' || localStorage.getItem('feed_home_data') == item || localStorage.getItem('feed_notice_data') == item || localStorage.getItem('feed_blog_data') == item)
+		fetch_data();
+}
+
 function copy_data() {
-	home_old = localStorage.getItem('feed_home_data');
-	notice_old = localStorage.getItem('feed_notice_data');
-	blog_old = localStorage.getItem('feed_blog_data');
+	home_old = $(localStorage.getItem('feed_home_data'));
+	notice_old = $(localStorage.getItem('feed_notice_data'));
+	blog_old = $(localStorage.getItem('feed_blog_data'));
 }
 
 function check_data() {
-	var home_temp = localStorage.getItem('feed_home_data');
-	var notice_temp = localStorage.getItem('feed_notice_data');
-	var blog_temp = localStorage.getItem('feed_blog_data');
-	if((home_temp != home_old || notice_temp != notice_old || blog_temp != blog_old) && home_temp != null && notice_temp != null && blog_temp != null) {
-		chrome.browserAction.setIcon({path:'../images/tsa16px-unread.png'});
+	var home_new = new Object();
+	var notice_new = new Object();
+	var blog_new = new Object();
+
+	home_new = $(localStorage.getItem('feed_home_data'));
+	notice_new = $(localStorage.getItem('feed_notice_data'));
+	blog_new = $(localStorage.getItem('feed_blog_data'));
+		
+	var home_title_old;
+	var notice_title_old;
+	var blog_title_old;
+	var home_title_new;
+	var notice_title_new;
+	var blog_title_new;
+	
+	home_old.find("h4").each(function(index, element) {
+			if(index == 0)
+				home_title_old = $(element).text();
+		});
+		
+	notice_old.find("h4").each(function(index, element) {
+			if(index == 0)
+				notice_title_old = $(element).text();
+		});
+	
+	blog_old.find("h4").each(function(index, element) {
+			if(index == 0)
+				blog_title_old = $(element).text();
+		});
+	
+	home_new.find("h4").each(function(index, element) {
+			if(index == 0)
+				home_title_new = $(element).text();
+		});
+	
+	notice_new.find("h4").each(function(index, element) {
+			if(index == 0)
+				notice_title_new = $(element).text();
+		});
+	
+	blog_new.find("h4").each(function(index, element) {
+			if(index == 0)
+				blog_title_new = $(element).text();
+		});
+	
+	if(home_title_old != undefined && notice_title_old != undefined && blog_title_old != undefined && home_title_new != undefined && notice_title_new != undefined && blog_title_new != undefined) {
+		if(home_title_new != home_title_old || notice_title_new != notice_title_old || blog_title_new != blog_title_old) {
+			chrome.browserAction.setIcon({path:'../images/tsa16px-unread.png'});
+		}
 	}
 }
+
 
 function fetch_home_feed() {
 	var result = new XMLHttpRequest();
@@ -91,12 +149,6 @@ function fetch_blog_feed() {
 
 function parse_home(){
 	if(localStorage.getItem('feed_home_call') == null) {
-		var item = '';
-		item += '<div class="error">\
-				<p>Oops!</p>\
-				<p>There seems to be a problem with your internet connection.</p>\
-				<p>Please try again later.</p>\
-				</div>';
 		localStorage.setItem('feed_home_data', item);
 	}
 	else {
@@ -109,7 +161,7 @@ function parse_home(){
 			i++;
 			if(i > 11)
 				exit();
-			var post= new Object();
+			var post = new Object();
 			post.title = $(element).find("title").text();
 			post.url = $(element).find("link").text();
 			post.img = $(unescape($(element).find("encoded").text())).find("img").attr("src");
@@ -135,12 +187,6 @@ function parse_home(){
 
 function parse_notice(){
 	if(localStorage.getItem('feed_notice_call') == null) {
-		var item = '';
-		item += '<div class="error">\
-				<p>Oops!</p>\
-				<p>There seems to be a problem with your internet connection.</p>\
-				<p>Please try again later.</p>\
-				</div>';
 		localStorage.setItem('feed_notice_data', item);
 	}
 	else {
@@ -153,7 +199,7 @@ function parse_notice(){
 			i++;
 			if(i > 11)
 				exit();			
-			var post= new Object();
+			var post = new Object();
 			post.title = $(element).find("title").text();
 			post.url = $(element).find("link").text();
 			post.img = $(unescape($(element).find("encoded").text())).find("img").attr("src");
@@ -179,12 +225,6 @@ function parse_notice(){
 
 function parse_blog(){
 	if(localStorage.getItem('feed_blog_call') == null) {
-		var item = '';
-		item += '<div class="error">\
-				<p>Oops!</p>\
-				<p>There seems to be a problem with your internet connection.</p>\
-				<p>Please try again later.</p>\
-				</div>';
 		localStorage.setItem('feed_blog_data', item);
 	}
 	else {
@@ -197,7 +237,7 @@ function parse_blog(){
 			i++;
 			if(i > 11)
 				exit();
-			var post= new Object();
+			var post = new Object();
 			post.title = $(element).find("title").text();
 			post.url = $(element).find("link").text();
 			post.img = $(unescape($(element).find("encoded").text())).find("img").attr("src");
