@@ -38,7 +38,16 @@ $(document).ready(function() {
 });
 
 function display_home(){
-	chrome.browserAction.setIcon({path:'../images/tsa16px.png'});
+	if(localStorage.getItem('unread_data') == 'home') {
+		chrome.browserAction.setIcon({path:'../images/tsa16px.png'});
+		localStorage.setItem('unread_data', '');
+	}
+	else if(localStorage.getItem('unread_data') == 'home, notice')
+		localStorage.setItem('unread_data', 'notice');
+	else if(localStorage.getItem('unread_data') == 'home, blog')
+		localStorage.setItem('unread_data', 'blog');
+	else if(localStorage.getItem('unread_data') == 'home, notice, blog')
+		localStorage.setItem('unread_data', 'notice, blog');
 	$('#tabs-1').empty();
 	if(localStorage.getItem('feed_home_data') != '')
 		$('#tabs-1').append(localStorage.getItem('feed_home_data'));
@@ -48,7 +57,16 @@ function display_home(){
 }
 
 function display_notice(){
-	chrome.browserAction.setIcon({path:'../images/tsa16px.png'});
+	if(localStorage.getItem('unread_data') == 'notice') {
+		chrome.browserAction.setIcon({path:'../images/tsa16px.png'});
+		localStorage.setItem('unread_data', '');
+	}
+	else if(localStorage.getItem('unread_data') == 'home, notice')
+		localStorage.setItem('unread_data', 'home');
+	else if(localStorage.getItem('unread_data') == 'notice, blog')
+		localStorage.setItem('unread_data', 'blog');
+	else if(localStorage.getItem('unread_data') == 'home, notice, blog')
+		localStorage.setItem('unread_data', 'home, blog');
 	$('#tabs-2').empty();
 	if(localStorage.getItem('feed_notice_data') != '')
 		$('#tabs-2').append(localStorage.getItem('feed_notice_data'));
@@ -58,7 +76,16 @@ function display_notice(){
 }
 
 function display_blog(){
-	chrome.browserAction.setIcon({path:'../images/tsa16px.png'});
+	if(localStorage.getItem('unread_data') == 'blog') {
+		chrome.browserAction.setIcon({path:'../images/tsa16px.png'});
+		localStorage.setItem('unread_data', '');
+	}
+	else if(localStorage.getItem('unread_data') == 'home, blog')
+		localStorage.setItem('unread_data', 'home');
+	else if(localStorage.getItem('unread_data') == 'notice, blog')
+		localStorage.setItem('unread_data', 'notice');
+	else if(localStorage.getItem('unread_data') == 'home, notice, blog')
+		localStorage.setItem('unread_data', 'home, notice');
 	$('#tabs-3').empty();
 	if(localStorage.getItem('feed_blog_data') != '')
 		$('#tabs-3').append(localStorage.getItem('feed_blog_data'));
