@@ -24,8 +24,7 @@
 		"http://www.scholarsavenue.org/feed/",
 		"http://noticeboard.scholarsavenue.org/feed/",
 		"http://blog.scholarsavenue.org/feed/",
-		"https://www.facebook.com/feeds/page.php?id=156819310131&format=rss20",
-		"tabs", "*://*/*",
+		"tabs",
 		"storage"
 	],
 	
