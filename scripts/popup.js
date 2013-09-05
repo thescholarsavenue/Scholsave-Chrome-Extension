@@ -49,7 +49,7 @@ $(document).ready(function() {
 
 function display_home(){
 	if(localStorage.getItem('unread_data') == 'home') {
-		chrome.browserAction.setIcon({path:'../images/tsa16px.png'});
+		chrome.browserAction.setIcon({path:'../images/tsa19px.png'});
 		localStorage.setItem('unread_data', '');
 	}
 	else if(localStorage.getItem('unread_data') == 'home, notice')
@@ -68,7 +68,7 @@ function display_home(){
 
 function display_notice(){
 	if(localStorage.getItem('unread_data') == 'notice') {
-		chrome.browserAction.setIcon({path:'../images/tsa16px.png'});
+		chrome.browserAction.setIcon({path:'../images/tsa19px.png'});
 		localStorage.setItem('unread_data', '');
 	}
 	else if(localStorage.getItem('unread_data') == 'home, notice')
@@ -87,7 +87,7 @@ function display_notice(){
 
 function display_blog(){
 	if(localStorage.getItem('unread_data') == 'blog') {
-		chrome.browserAction.setIcon({path:'../images/tsa16px.png'});
+		chrome.browserAction.setIcon({path:'../images/tsa19px.png'});
 		localStorage.setItem('unread_data', '');
 	}
 	else if(localStorage.getItem('unread_data') == 'home, blog')

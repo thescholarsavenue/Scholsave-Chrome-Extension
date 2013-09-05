@@ -99,31 +99,31 @@ function check_data() {
 	
 	if(home_title_old != undefined && notice_title_old != undefined && blog_title_old != undefined && home_title_new != undefined && notice_title_new != undefined && blog_title_new != undefined) {
 		if(home_title_new != home_title_old && notice_title_new != notice_title_old && blog_title_new != blog_title_old) {
-			chrome.browserAction.setIcon({path:'../images/tsa16px-unread.png'});
+			chrome.browserAction.setIcon({path:'../images/tsa19px-unread.png'});
 			localStorage.setItem('unread_data', 'home, notice, blog');		
 		}
 		else if(home_title_new != home_title_old && notice_title_new != notice_title_old) {
-			chrome.browserAction.setIcon({path:'../images/tsa16px-unread.png'});
+			chrome.browserAction.setIcon({path:'../images/tsa19px-unread.png'});
 			localStorage.setItem('unread_data', 'home, notice');		
 		}
 		else if(home_title_new != home_title_old && blog_title_new != blog_title_old) {
-			chrome.browserAction.setIcon({path:'../images/tsa16px-unread.png'});
+			chrome.browserAction.setIcon({path:'../images/tsa19px-unread.png'});
 			localStorage.setItem('unread_data', 'home, blog');		
 		}
 		else if(notice_title_new != notice_title_old && blog_title_new != blog_title_old) {
-			chrome.browserAction.setIcon({path:'../images/tsa16px-unread.png'});
+			chrome.browserAction.setIcon({path:'../images/tsa19px-unread.png'});
 			localStorage.setItem('unread_data', 'notice, blog');		
 		}
 		else if(home_title_new != home_title_old) {
-			chrome.browserAction.setIcon({path:'../images/tsa16px-unread.png'});
+			chrome.browserAction.setIcon({path:'../images/tsa19px-unread.png'});
 			localStorage.setItem('unread_data', 'home');
 		}
 		else if(notice_title_new != notice_title_old) {
-			chrome.browserAction.setIcon({path:'../images/tsa16px-unread.png'});
+			chrome.browserAction.setIcon({path:'../images/tsa19px-unread.png'});
 			localStorage.setItem('unread_data', 'notice');
 		}
 		else if(blog_title_new != blog_title_old) {
-			chrome.browserAction.setIcon({path:'../images/tsa16px-unread.png'});
+			chrome.browserAction.setIcon({path:'../images/tsa19px-unread.png'});
 			localStorage.setItem('unread_data', 'blog');
 		}
 	}
